@@ -5,8 +5,5 @@
             "type": "vcs",
             "url": "https://github.com/CodeBlastr/PLATFORM.git"
         }
-    ],
-    #"require": {
-    #    "codeblastr/platform": "master"
-   	#}
+    ]
 }
