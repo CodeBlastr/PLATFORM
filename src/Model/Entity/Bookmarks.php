@@ -6,7 +6,7 @@ use Cake\ORM\Entity;
 class Bookmarks extends Entity
 {
 
-	 public function findPopular(Query $query, array $options)
+	public function findPopular(Query $query, array $options)
     {
         return $query->where([1 = 1]);
     }
