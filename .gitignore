@@ -5,3 +5,5 @@
 
 composer.lock
 sftp-config.json
+.DS_Store
+composer.phar
