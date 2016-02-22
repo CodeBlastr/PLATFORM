@@ -2,3 +2,6 @@
 /config/app.php
 /tmp/*
 /logs/*
+
+composer.lock
+sftp-config.json
