@@ -4,12 +4,42 @@
     "homepage": "http://cakephp.org",
     "type": "project",
     "license": "MIT",
+    "__repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "VendorName/mastering-bundle",
+                "version": "master",
+                "__autoload": { "psr-0": { "VendorName\\MasteringBundle": "" } },
+                "__target-dir": "VendorName/MasteringBundle",
+                "source": {
+                    "url": "https://github.com/CodeBlastr/privileges.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/CodeBlastr/privileges.git",
+            "branch": "master"
+        },
+        {
+        	"type": "vcs",
+        	"url": "https://github.com/CodeBlastr/Skeleton.git",
+        	"branch": "master"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "cakephp/cakephp": "~3.2",
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
-        "cakephp/plugin-installer": "*"
+        "cakephp/plugin-installer": "*",
+
+        "codeblastr/skeleton": "*"
     },
     "require-dev": {
         "psy/psysh": "@stable",
@@ -35,6 +65,6 @@
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
