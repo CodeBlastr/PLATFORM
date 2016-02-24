@@ -38,7 +38,10 @@
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
-
+		
+		"cakephp/acl": "dev-master",
+		
+        "codeblastr/privileges": "*",
         "codeblastr/skeleton": "*"
     },
     "require-dev": {
