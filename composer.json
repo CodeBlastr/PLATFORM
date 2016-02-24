@@ -4,22 +4,6 @@
     "homepage": "http://cakephp.org",
     "type": "project",
     "license": "MIT",
-    "__repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "VendorName/mastering-bundle",
-                "version": "master",
-                "__autoload": { "psr-0": { "VendorName\\MasteringBundle": "" } },
-                "__target-dir": "VendorName/MasteringBundle",
-                "source": {
-                    "url": "https://github.com/CodeBlastr/privileges.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        }
-    ],
     "repositories": [
         {
             "type": "vcs",
