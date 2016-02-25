@@ -2,12 +2,12 @@
 
 [![Build Status](https://travis-ci.org/CodeBlastr/framework.svg?style=flat-square)](https://travis-ci.org/CodeBlastr/framework)
 
-Cakephp framework for new projects [CakePHP](http://cakephp.org) 3.x.
+application built on the cakephp 3.2 framework for new projects [CakePHP](http://cakephp.org) 3.2.
 
 
 ## Installation
 
-1. Installation not supported
+Installation is not supported, best of luck though :)
 
 <!--
 1. Download [Composer](http://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
