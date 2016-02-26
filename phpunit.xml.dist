@@ -17,8 +17,8 @@
             <directory>./tests/TestCase</directory>
         </testsuite>
         <!-- Add plugin test suites here. -->
-        <testsuite name="Forum plugin">
-	        <directory>./plugins/Forum/tests/TestCase</directory>
+        <testsuite name="privileges plugin">
+	        <directory>./vendor/codeblastr/privileges/tests/TestCase</directory>
 	    </testsuite>
     </testsuites>
 
