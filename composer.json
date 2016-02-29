@@ -9,6 +9,11 @@
             "type": "vcs",
             "url": "https://github.com/CodeBlastr/privileges.git",
             "branch": "master"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/CodeBlastr/users.git",
+            "branch": "master"
         }
     ],
     "require": {
@@ -21,6 +26,8 @@
 		"cakephp/acl": "dev-master",
 		
         "codeblastr/privileges": "*",
+        "codeblastr/users": "*",
+
         "friendsofcake/crud": "~4.2",
         "admad/cakephp-jwt-auth": "^2.0"
     },
