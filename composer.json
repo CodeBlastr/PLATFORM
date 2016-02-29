@@ -9,11 +9,6 @@
             "type": "vcs",
             "url": "https://github.com/CodeBlastr/privileges.git",
             "branch": "master"
-        },
-        {
-        	"type": "vcs",
-        	"url": "https://github.com/CodeBlastr/Skeleton.git",
-        	"branch": "master"
         }
     ],
     "require": {
@@ -26,7 +21,6 @@
 		"cakephp/acl": "dev-master",
 		
         "codeblastr/privileges": "*",
-        "codeblastr/skeleton": "*",
         "friendsofcake/crud": "~4.2",
         "admad/cakephp-jwt-auth": "^2.0"
     },
