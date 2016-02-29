@@ -27,7 +27,8 @@
 		
         "codeblastr/privileges": "*",
         "codeblastr/skeleton": "*",
-        "friendsofcake/crud": "~4.2"
+        "friendsofcake/crud": "~4.2",
+        "admad/cakephp-jwt-auth": "^2.0"
     },
     "require-dev": {
         "psy/psysh": "@stable",

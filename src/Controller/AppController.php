@@ -39,11 +39,6 @@ class AppController extends Controller
                 'Crud.Add',
                 'Crud.Edit',
                 'Crud.Delete'
-            ],
-            'listeners' => [
-                'Crud.Api',
-                'Crud.ApiPagination',
-                'Crud.ApiQueryLog'
             ]
         ]);
     }
