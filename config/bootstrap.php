@@ -182,9 +182,9 @@ Request::addDetector('tablet', function ($request) {
 
  // this really sucks, that this has to be here like this
 Plugin::loadAll([
-	'CodeBlastr/Skeleton' => ['routes' => true],
+    'Acl', ['bootstrap' => true],
 	'Privileges' => ['routes' => true],
-	'Acl', ['bootstrap' => true]
+    'Users', ['routes' => true]
 	]); // Loads all plugins at once
 //Plugin::load('Migrations');
 
