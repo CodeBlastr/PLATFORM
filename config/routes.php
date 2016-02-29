@@ -48,13 +48,13 @@ Router::defaultRouteClass('DashedRoute');
  * @url http://www.bravo-kernel.com/2015/04/how-to-build-a-cakephp-3-rest-api-in-minutes/
  * @url http://www.bravo-kernel.com/2015/04/how-to-add-jwt-authentication-to-a-cakephp-3-rest-api/
  */
-Router::prefix('api', function ($routes) {
-    $routes->extensions(['json', 'xml']);
-    $routes->resources('Cocktails');
-    $routes->resources('Users');
-    Router::connect('/api/users/register', ['controller' => 'Users', 'action' => 'add', 'prefix' => 'api']);
-    $routes->fallbacks('InflectedRoute');
-});
+//Router::prefix('api', function ($routes) {
+//    $routes->extensions(['json', 'xml']);
+//    $routes->resources('Cocktails');
+//    $routes->resources('Users');
+//    Router::connect('/api/users/register', ['controller' => 'Users', 'action' => 'add', 'prefix' => 'api']);
+//    $routes->fallbacks('InflectedRoute');
+//});
 
 Router::scope('/', function (RouteBuilder $routes) {
 
