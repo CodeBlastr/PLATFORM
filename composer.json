@@ -26,7 +26,8 @@
 		"cakephp/acl": "dev-master",
 		
         "codeblastr/privileges": "*",
-        "codeblastr/skeleton": "*"
+        "codeblastr/skeleton": "*",
+        "friendsofcake/crud": "~4.2"
     },
     "require-dev": {
         "psy/psysh": "@stable",
