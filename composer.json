@@ -18,8 +18,6 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
 
-        "cakedc/users": "*",
-
         "codeblastr/users": "*",
 
         "friendsofcake/crud": "~4.2",

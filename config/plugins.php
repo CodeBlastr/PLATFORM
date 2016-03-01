@@ -7,4 +7,6 @@
  */
 use Cake\Core\Plugin;
 
-Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
+Plugin::load('CodeBlastr/Users', ['routes' => true, 'bootstrap' => true]);
+//Plugin::load('CodeBlastr/CakeDC/Users', ['routes' => true, 'bootstrap' => true]); // can we move this to CodeBlastr/Users delete...
+Plugin::load('Crud');
