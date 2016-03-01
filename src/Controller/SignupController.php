@@ -1,12 +1,16 @@
 <?php
 namespace App\Controller;
 
-use Cake\Core\Configure;
-use Cake\Network\Exception\NotFoundException;
-use Cake\View\Exception\MissingTemplateException;
+//use CodeBlastr\Users\Model\Entity\User;
+use Cake\ORM\TableRegistry;
+//use Cake\Network\Exception\NotFoundException;
+
+
 
 class SignupController extends AppController
 {
+
+
     /**
      * Index (signup)
      *
@@ -18,12 +22,36 @@ class SignupController extends AppController
     public function index() {
 
         $this->viewBuilder()
-            ->layout('signup')
+            ->layout(false)
             ->templatePath('Pages')
             ->template('signup');
 
         if ($this->request->is('post')) {
-            debug($this->request->data);
+
+            STOPPED AT...
+            MAKE SURE IT VALIDATES,
+            GET THIS DATA WORKING EASIER ( I DO NOT WANT TO MAP DATA LIKE THIS EVERYTIME )
+
+
+            $users = TableRegistry::get('Users');
+            $user = $users->newEntity();
+
+            $user->username = $this->request->data['email'];
+            $user->email = $this->request->data['email'];
+            $user->password = $this->request->data['password'];
+            $user->first_name = $this->request->data['name'];
+            $user->last_name = $this->request->data['name'];
+            $user->active = 1;
+            $user->role = 'user';
+
+            $entity = $users->newEntity($this->request->data);
+
+            if ($users->save($user)) {
+                // The $article entity contains the id now
+                $id = $user->id;
+            }
+            debug($id);
+            debug($user);
             exit;
         }
     }
