@@ -37,7 +37,7 @@ require CORE_PATH . 'config' . DS . 'bootstrap.php';
 if (!extension_loaded('intl')) {
     trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
 }
-
+use App\Config\Plugins;
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\App;
@@ -179,15 +179,7 @@ Request::addDetector('tablet', function ($request) {
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
-
- // this really sucks, that this has to be here like this
-Plugin::loadAll([
-    'Acl', ['bootstrap' => true],
-	'Privileges' => ['routes' => true],
-    'Users', ['routes' => true]
-	]); // Loads all plugins at once
-//Plugin::load('Migrations');
-
+require_once(CONFIG . 'plugins.php');
 
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
