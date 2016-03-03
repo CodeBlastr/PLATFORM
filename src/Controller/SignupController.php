@@ -21,10 +21,10 @@ class SignupController extends AppController
     public function index() {
 
         $users = TableRegistry::get('CodeBlastr/Users.Users');
-        $this->set('user', $user = $users->newEntity());
 
         if ($this->request->is('post')) {
-            $user = $users->newEntity($this->request->data());
+            $users = TableRegistry::get('CodeBlastr/Users.Users');
+            $user = $users->newEntity($this->request->data);
             if ($users->save($user)) {
                 $this->Flash->success("Yeah");
             } else {
@@ -33,6 +33,7 @@ class SignupController extends AppController
             }
         }
 
+        $this->set('user', $user = $users->newEntity());
         $this->viewBuilder()
             ->layout(false)
             ->templatePath('Pages')

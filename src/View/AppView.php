@@ -37,8 +37,7 @@ class AppView extends View
     public function initialize()
     {
         $this->loadHelper('Form', [
-            'templates' => 'bootstrap-forms',
-            'errorClass' => 'has-error', // for the bootstrap validator js
+            'templates' => 'bootstrap-forms'
         ]);
     }
 }
