@@ -38,6 +38,7 @@ class AppView extends View
     {
         $this->loadHelper('Form', [
             'templates' => 'bootstrap-forms',
+            'errorClass' => 'has-error', // for the bootstrap validator js
         ]);
     }
 }

@@ -1,7 +1,6 @@
 <?php
 namespace App\Controller;
 
-//use CodeBlastr\Users\Model\Entity\User;
 use Cake\ORM\TableRegistry;
 //use Cake\Network\Exception\NotFoundException;
 
@@ -21,38 +20,22 @@ class SignupController extends AppController
      */
     public function index() {
 
+        $users = TableRegistry::get('CodeBlastr/Users.Users');
+        $this->set('user', $user = $users->newEntity());
+
+        if ($this->request->is('post')) {
+            $user = $users->newEntity($this->request->data());
+            if ($users->save($user)) {
+                $this->Flash->success("Yeah");
+            } else {
+                $this->Flash->error('Nope');
+                $this->set('user', $user);
+            }
+        }
+
         $this->viewBuilder()
             ->layout(false)
             ->templatePath('Pages')
             ->template('signup');
-
-        if ($this->request->is('post')) {
-
-            STOPPED AT...
-            MAKE SURE IT VALIDATES,
-            GET THIS DATA WORKING EASIER ( I DO NOT WANT TO MAP DATA LIKE THIS EVERYTIME )
-
-
-            $users = TableRegistry::get('Users');
-            $user = $users->newEntity();
-
-            $user->username = $this->request->data['email'];
-            $user->email = $this->request->data['email'];
-            $user->password = $this->request->data['password'];
-            $user->first_name = $this->request->data['name'];
-            $user->last_name = $this->request->data['name'];
-            $user->active = 1;
-            $user->role = 'user';
-
-            $entity = $users->newEntity($this->request->data);
-
-            if ($users->save($user)) {
-                // The $article entity contains the id now
-                $id = $user->id;
-            }
-            debug($id);
-            debug($user);
-            exit;
-        }
     }
 }
