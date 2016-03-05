@@ -26,6 +26,14 @@ class SignupController extends AppController
             $users = TableRegistry::get('CodeBlastr/Users.Users');
             $user = $users->newEntity($this->request->data);
             if ($users->save($user)) {
+
+//                STOPPED HERE, NEXT UP
+//
+//                CREATE DB TABLES CORRECTLY (SAVE THE RIGHT INFO)
+//                MAKE SURE LOGINS WORK
+//                THINK ABOUT HOW WE WILL CREATE A NEW SITE FROM HERE
+
+
                 $this->Flash->success("Yeah");
             } else {
                 $this->Flash->error('Nope');
