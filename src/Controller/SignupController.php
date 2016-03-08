@@ -27,12 +27,6 @@ class SignupController extends AppController
             $user = $users->newEntity($this->request->data);
             if ($users->save($user)) {
 
-//                STOPPED HERE, NEXT UP
-//
-//                CREATE DB TABLES CORRECTLY (SAVE THE RIGHT INFO)
-//                MAKE SURE LOGINS WORK
-//                THINK ABOUT HOW WE WILL CREATE A NEW SITE FROM HERE
-
 
                 $this->Flash->success("Yeah");
             } else {
