@@ -21,7 +21,8 @@
         "codeblastr/users": "*",
 
         "friendsofcake/crud": "~4.2",
-        "admad/cakephp-jwt-auth": "^2.0"
+        "admad/cakephp-jwt-auth": "^2.0",
+        "elboletaire/twbs-cake-plugin": "*"
     },
     "require-dev": {
         "psy/psysh": "@stable",

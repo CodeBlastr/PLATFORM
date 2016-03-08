@@ -179,7 +179,15 @@ Request::addDetector('tablet', function ($request) {
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
-require_once(CONFIG . 'plugins.php');
+// this causes an error with the initial install // require_once(CONFIG . 'plugins.php');
+
+Plugin::load('CodeBlastr/Users', ['routes' => true, 'bootstrap' => true]);
+// Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]); // can we move this to CodeBlastr/Users delete...
+Plugin::load('Crud');
+Plugin::load('Migrations');
+Plugin::load('Bootstrap');
+Plugin::load('Less');
+Plugin::load('BootstrapUI');
 
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
