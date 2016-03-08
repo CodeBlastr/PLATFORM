@@ -8,3 +8,5 @@ sftp-config.json
 .DS_Store
 composer.phar
 .idea
+phpinfo.php
+lessphp*
