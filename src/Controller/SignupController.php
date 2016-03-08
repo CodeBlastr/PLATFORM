@@ -17,6 +17,8 @@ class SignupController extends AppController
      * Add the user info to this database
      * The username and password will be stored (but not used on this site)
      * This user info is mainly to know whether the user is active (eg. subscribed) and contain meta data.
+     *
+     * @todo create a new site from this function
      */
     public function index() {
 
