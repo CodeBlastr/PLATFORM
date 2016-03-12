@@ -1,17 +1,16 @@
 <?php
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.8
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
+
+
+
+$domains['asdf.localhost:8080'] = 'example.com';
+
+if (!empty($domains[$_SERVER['HTTP_HOST']])) {
+    if (!defined('SITE_DIR')) {
+        // this is the site combined local and remote sites directory
+        define('SITE_DIR', 'sites/' . $domains[$_SERVER['HTTP_HOST']]);
+    }
+}
+
 
 /**
  * Configure paths required to find CakePHP + general filepath
