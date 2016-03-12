@@ -14,6 +14,7 @@
  */
 namespace App\Controller;
 
+use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
@@ -37,6 +38,10 @@ class PagesController extends AppController
      */
     public function display()
     {
+        debug(App::path(null, 'CodeBlastr/Users'));
+
+
+
         $path = func_get_args();
 
         $count = count($path);

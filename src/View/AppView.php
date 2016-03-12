@@ -13,24 +13,17 @@
  */
 namespace App\View;
 
-use Cake\View\View;
+use WyriHaximus\TwigView\View\TwigView;
 
 /**
  * Application View
- *
- * Your application’s default view class
- *
  * @link http://book.cakephp.org/3.0/en/views.html#the-app-view
  */
-class AppView extends View
+class AppView extends TwigView
 {
 
     /**
      * Initialization hook method.
-     *
-     * Use this method to add common initialization code like loading helpers.
-     *
-     * e.g. `$this->loadHelper('Html');`
      *
      * @return void
      */
