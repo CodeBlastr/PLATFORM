@@ -38,9 +38,7 @@ class PagesController extends AppController
      */
     public function display()
     {
-        debug(App::path(null, 'CodeBlastr/Users'));
-
-
+        debug('original');
 
         $path = func_get_args();
 
