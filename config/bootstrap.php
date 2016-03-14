@@ -1,22 +1,14 @@
 <?php
-
-
-
-$domains['asdf.localhost:8080'] = 'example.com';
-
-if (!empty($domains[$_SERVER['HTTP_HOST']])) {
-    if (!defined('SITE_DIR')) {
-        // this is the site combined local and remote sites directory
-        define('SITE_DIR', 'sites/' . $domains[$_SERVER['HTTP_HOST']]);
-    }
-}
-
-
 /**
  * Configure paths required to find CakePHP + general filepath
  * constants
  */
 require __DIR__ . '/paths.php';
+
+/**
+ * Get multisites
+ */
+require ROOT . DS . 'sites' . DS . 'bootstrap.php';
 
 // Use composer to load the autoloader.
 require ROOT . DS . 'vendor' . DS . 'autoload.php';
@@ -187,6 +179,7 @@ Plugin::load('Migrations');
 Plugin::load('Bootstrap');
 Plugin::load('Less');
 Plugin::load('BootstrapUI');
+
 
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
