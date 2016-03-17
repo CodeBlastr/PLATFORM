@@ -36,9 +36,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\Plugin\\": "./sites/example.com/plugins/",
-            "App\\": ["./sites/example.com/src", "./%s/secretecode", "src"],
-            "CodeBlastr\\Users\\": ["./sites/example.com/plugins/codeblastr/users/src"]
+            "App\\": ["./SITE_DIR/src", "src"],
+            "CodeBlastr\\Users\\": "./SITE_DIR/vendor/codeblastr/users/src"
         }
     },
     "autoload-dev": {
@@ -49,7 +48,10 @@
     },
     "scripts": {
         "post-install-cmd": "App\\Console\\Installer::postInstall",
-        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
+        "post-autoload-dump": [
+            "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
+            "CodeBlastr\\MultiSite\\Console\\AutoLoader::postAutoloadDump"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true
