@@ -19,6 +19,7 @@
         "cakephp/plugin-installer": "*",
 
         "codeblastr/users": "*",
+        "codeblastr/multisite": "*",
 
         "friendsofcake/crud": "~4.2",
         "admad/cakephp-jwt-auth": "^2.0",
