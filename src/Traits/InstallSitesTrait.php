@@ -45,12 +45,14 @@ trait InstallSitesTrait
     }
 
     /**
-     * Install method
+     * Create site method
      * Installs a new domain, new database and website.
      *
+     * @param array $config
      * @throws Exception
+     * @return array the HTTP_HOST of the site that was created, and the database created
      */
-    public function install(array $config = [])
+    public function createSite(array $config = [])
     {
         try {
             self::config($config);
@@ -58,6 +60,7 @@ trait InstallSitesTrait
             self::_copySiteTemplate();
             self::_updateSitesBootstrap();
             self::_updateSiteConfig();
+            return ['host' => $this->config['subdomain'] . $this->config['domain'], 'database' => $this->config['dbName']];
         } catch (Exception $e) {
             // should probably have a roll back here in case there is an error and need to try again
             throw new Exception($e->getMessage());
@@ -124,7 +127,7 @@ trait InstallSitesTrait
         $newSite = ROOT . DS . 'sites' . DS . $this->config['folderName'];
         if (file_exists($template)) {
             if (file_exists($newSite)) {
-                throw new Exception('New site already exists');
+                throw new Exception('Site already exists');
             } else {
                 $folder = new Folder($template);
                 if ($folder->copy($newSite)) {
