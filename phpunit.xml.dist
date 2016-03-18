@@ -17,9 +17,9 @@
             <directory>./tests/TestCase</directory>
         </testsuite>
         <!-- Add plugin test suites here. -->
-        <testsuite name="users plugin">
-	        <directory>./vendor/codeblastr/users/tests/TestCase</directory>
-	    </testsuite>
+        <testsuite name="codeblastr">
+            <directory>./vendor/codeblastr/users/tests/TestCase</directory>
+        </testsuite>
     </testsuites>
 
     <!-- Setup a listener for fixtures -->

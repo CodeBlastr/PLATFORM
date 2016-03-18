@@ -9,7 +9,7 @@ use Cake\Network\Exception\MethodNotAllowedException;
 /**
  * Class InstallTrait
  * @package App\Traits
- * @todo Should I move this to a plugin?
+ * @todo Should I move this trait to a plugin?
  */
 trait InstallTrait
 {
