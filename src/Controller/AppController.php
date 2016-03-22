@@ -33,6 +33,9 @@ class AppController extends Controller
 
         $this->loadComponent('Flash');
 
+        $this->loadComponent('CodeBlastr/Users.UsersAuth');
+        //$this->loadComponent('CakeDC/Users.UsersAuth');
+
 // going to have to have some kind of auth going on site wide I would imagine
 
 
@@ -55,6 +58,18 @@ class AppController extends Controller
 //            'unauthorizedRedirect' => false,
 //            'checkAuthIn' => 'Controller.initialize'
 //        ]);
+    }
+
+    /**
+     * Before filter callback
+     *
+     * Created to allow guest/public access to actions with the asterisk as the
+     * roles that are given permission to access that action.
+     *
+     * @param Event $event
+     */
+    public function beforeFilter(Event $event) {
+        $this->UsersAuth->isPublicAuthorized($event);
     }
 
     /**
