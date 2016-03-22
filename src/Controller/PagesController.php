@@ -28,6 +28,14 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
+    /**
+     * Demo of how to use allowedActions
+     */
+//    public function initialize()
+//    {
+//        parent::initialize();
+//        $this->Auth->allowedActions = ['display'];
+//    }
 
     /**
      * Displays a view
@@ -38,6 +46,10 @@ class PagesController extends AppController
      */
     public function display()
     {
+        // start extracurricular
+        $this->set('title', Configure::read('App.name'));
+        // end extracurricular
+
         $path = func_get_args();
 
         $count = count($path);
@@ -53,7 +65,6 @@ class PagesController extends AppController
             $subpage = $path[1];
         }
         $this->set(compact('page', 'subpage'));
-
         try {
             $this->render(implode('/', $path));
         } catch (MissingTemplateException $e) {
