@@ -173,10 +173,12 @@ Request::addDetector('tablet', function ($request) {
 // this causes an error with the initial install // require_once(CONFIG . 'plugins.php');
 
 Plugin::load('CodeBlastr/Users', ['routes' => true, 'bootstrap' => true]);
+// delete this eventualllyPlugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
 Plugin::load('Crud');
 Plugin::load('Migrations');
 Plugin::load('Bootstrap');
 Plugin::load('Less');
+Configure::write('Auth.flash.params.class', ['alert', 'alert-danger', 'alert-dismissible']); // odd fix to get bootstrapui, and cakedc users to play nice together
 Plugin::load('BootstrapUI');
 
 
