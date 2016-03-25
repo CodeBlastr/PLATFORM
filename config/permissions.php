@@ -5,7 +5,7 @@ return [
         [
             'role' => '*',
             'controller' => ['Pages'],
-            'action' => ['other', 'display'],
+            'action' => ['display'],
             'allowed' => true,
         ],
         [

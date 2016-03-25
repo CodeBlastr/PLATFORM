@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
+use Cake\Core\Configure;
 
 /**
  * Application Controller
@@ -33,6 +34,7 @@ class AppController extends Controller
 
         $this->loadComponent('Flash');
 
+        Configure::write('Users.publicAcl', true);
         $this->loadComponent('CodeBlastr/Users.UsersAuth');
         //$this->loadComponent('CakeDC/Users.UsersAuth');
 
@@ -58,18 +60,6 @@ class AppController extends Controller
 //            'unauthorizedRedirect' => false,
 //            'checkAuthIn' => 'Controller.initialize'
 //        ]);
-    }
-
-    /**
-     * Before filter callback
-     *
-     * Created to allow guest/public access to actions with the asterisk as the
-     * roles that are given permission to access that action.
-     *
-     * @param Event $event
-     */
-    public function beforeFilter(Event $event) {
-        $this->UsersAuth->isPublicAuthorized($event);
     }
 
     /**

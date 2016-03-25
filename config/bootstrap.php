@@ -173,7 +173,6 @@ Request::addDetector('tablet', function ($request) {
 // this causes an error with the initial install // require_once(CONFIG . 'plugins.php');
 
 Plugin::load('CodeBlastr/Users', ['routes' => true, 'bootstrap' => true]);
-// delete this eventualllyPlugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
 Plugin::load('Crud');
 Plugin::load('Migrations');
 Plugin::load('Bootstrap');
