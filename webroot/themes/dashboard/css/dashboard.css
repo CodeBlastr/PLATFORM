@@ -1,0 +1,140 @@
+/* self */
+body {
+    background: #eee;
+}
+.navbar {
+    margin-bottom: 0px;
+}
+.content {
+    background: #fff;
+    -webkit-box-shadow: -1px 2px 5px 1px rgba(0,0,0,0.39);
+    -moz-box-shadow: -1px 2px 5px 1px rgba(0,0,0,0.39);
+    box-shadow: -1px 2px 5px 1px rgba(0,0,0,0.39);
+    padding: 30px;
+}
+@media (max-width: 767px)  {
+    .content {
+        padding: 15px;
+    }
+}
+.page-header {
+    margin: 0 0 20px;
+}
+.sidebar-nav {
+    padding-top: 10px;
+}
+.sidebar-nav .list-group-item {
+    background-color: #eee;
+    /*opacity: 0.4;*/
+    border: 0;
+    border-bottom: 1px solid #aaa;
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(255,255,255,1);
+    box-shadow: 0px 1px 0px 0px rgba(255,255,255,1);
+    margin-bottom: 0;
+    padding: 15px;
+}
+.sidebar-nav .list-group-item:hover, .sidebar-nav .list-group-item:focus {
+    background-color: #eee;
+    opacity: 1;
+}
+.sidebar-nav .list-group-item.active {
+    position: relative;
+}
+@media (min-width: 768px) {
+    .sidebar-nav .list-group-item.active:before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 15px 20px 15px 0;
+        border-color: transparent #ffffff transparent transparent;
+        position: absolute;
+        top: 10px;
+        right: -15px;
+    }
+}
+.sidebar-nav .list-group-item.active  {
+    color: #777;
+}
+.sidebar-nav a.list-group-item:hover, .sidebar-nav a.list-group-item:focus {
+    color: #000;
+    text-decoration:none;
+}
+.sidebar-nav ul li a:hover, .sidebar-nav ul li a:focus {
+    text-decoration: underline;
+}
+.sidebar-nav ul {
+    padding-top: 10px;
+}
+.sidebar-nav .glyphicon {
+    font-size: 1.5em;
+    position: relative;
+    top: 4px;
+    margin-right: 6px;
+}
+footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #fff;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(218,225,232,1);
+    -moz-box-shadow: 0px -1px 0px 0px rgba(218,225,232,1);
+    box-shadow: 0px -1px 0px 0px rgba(218,225,232,1);
+}
+/* http://bootsnipp.com/snippets/featured/expanding-search-button-in-css */
+.search-form .form-control {
+    height: 29px;
+}
+.search-form .form-group {
+    float: right !important;
+    transition: all 0.35s, border-radius 0s;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    margin-top: 14px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+.search-form .form-group input.form-control {
+    padding: 0 20px 8px 10px;
+    border: 0 none;
+    background: transparent;
+    box-shadow: none;
+    display:block;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+    display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+    /* Firefox 18- */
+    display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+    display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+    width: 100%;
+    border-radius: 25px 25px 25px 25px;
+}
+.search-form .form-group span.form-control-feedback {
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    z-index: 2;
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #3596e0;
+    left: initial;
+    font-size: 14px;
+}

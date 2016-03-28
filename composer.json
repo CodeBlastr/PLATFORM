@@ -9,6 +9,11 @@
             "type": "vcs",
             "url": "https://github.com/CodeBlastr/users.git",
             "branch": "master"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/CodeBlastr/bootstrap.git",
+            "branch": "master"
         }
     ],
     "require": {
@@ -20,6 +25,7 @@
 
         "codeblastr/users": "*",
         "codeblastr/multisite": "*",
+        "codeblastr/bootstrap": "*",
 
         "friendsofcake/crud": "~4.2",
         "admad/cakephp-jwt-auth": "^2.0",

@@ -1,31 +1,12 @@
 <?php
+use Cake\Utility\Hash;
 
-return [
-    'Users.SimpleRbac.permissions' => [
-        [
-            'role' => '*',
-            'controller' => ['Pages'],
-            'action' => ['display'],
-            'allowed' => true,
-        ],
-        [
-            'role' => '*',
-            'plugin' => 'CakeDC/Users',
-            'controller' => '*',
-            'action' => '*',
-        ],
-        [
-            'role' => 'user',
-            'plugin' => 'CakeDC/Users',
-            'controller' => 'Users',
-            'action' => ['register', 'edit', 'view'],
-        ],
-        [
-            'role' => 'user',
-            'plugin' => 'CakeDC/Users',
-            'controller' => 'Users',
-            'action' => '*',
-            'allowed' => false,
-        ],
-    ]
-];
+$config = $default = [];
+
+$site = '../' . SITE_DIR . DS . 'config' . DS . 'permissions.php';
+if (file_exists($site)) {
+    $site = include($site);
+    $config = Hash::merge($default, $site);
+}
+
+return $config;
