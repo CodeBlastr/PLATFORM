@@ -9,11 +9,6 @@
             "type": "vcs",
             "url": "https://github.com/CodeBlastr/users.git",
             "branch": "master"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/CodeBlastr/bootstrap.git",
-            "branch": "master"
         }
     ],
     "require": {
