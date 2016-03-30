@@ -13,6 +13,7 @@ use Cake\Core\Plugin;
 class DashboardController extends AppController
 {
 
+    public $permissions = true;
     /**
      * Index action
      */
