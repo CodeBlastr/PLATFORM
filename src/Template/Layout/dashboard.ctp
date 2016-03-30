@@ -94,7 +94,7 @@ $this->prepend('script', $this->Html->script([
                             <li><a href="#">link</a></li>
                             <li class="divider"></li>
                             <li><a href="#">link 2</a></li>
-                            <li><a href="#">link 3</a></li>
+                            <li><a href="/logout">Logout</a></li>
                         </ul>
                     </li>
                     <li>
