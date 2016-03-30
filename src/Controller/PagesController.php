@@ -28,6 +28,14 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
+
+    /**
+     * Permissions management turned on
+     *
+     * @var bool
+     */
+    public $permissions = true;
+
     /**
      * Demo of how to use allowedActions
      */
