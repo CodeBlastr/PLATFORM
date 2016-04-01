@@ -34,6 +34,24 @@ class PagematronComponentTest extends TestCase
      * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
      *
      * Example
+     * http://some-request/articles/index?filter[]=equals&equals[author_id][]=4&equals[published]=N
+     */
+    public function testPaginateFilterBad()
+    {
+        // set query params that should cause url get params to deliver the same as if you had set conditions manually
+        try {
+            $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' => 4, '' => 'N']];
+            $this->controller->paginate('Articles');
+        } catch (\PDOException $e) {
+            $true = true;
+        }
+        $this->assertTrue($true);
+    }
+
+    /**
+     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
+     *
+     * Example
      * http://some-request/articles/index?filter[]=equals&equals[author_id]=1
      */
     public function testPaginateFilterEqualsSingle()
