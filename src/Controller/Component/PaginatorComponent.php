@@ -60,40 +60,68 @@ class PaginatorComponent extends PaginatorComponent
                 $filters[] = $this->request->query['filter'];
             }
         }
-        switch (!empty($filters)) {
-            case 'equals':
-                // filter by database field full value
-                $settings = Hash::merge($settings, $this->_equals($object));
-                break;
-            case 'begins':
-                // filter by starting letter of database field
-                $settings = Hash::merge($settings, $this->_begins($object));
-                break;
-            case 'contains':
-                // filter by any match of a string in a particular field
-                $settings = Hash::merge($settings, $this->_contains($object));
-                break;
-            case 'between':
-                // filter by range of a particular field
-                $settings = Hash::merge($settings, $this->_between($object));
-                break;
-            case 'greater':
-                // filter by range of a particular field
-                $settings = Hash::merge($settings, $this->_greater($object));
-                break;
-            case 'less':
-                // filter by range of a particular field
-                $settings = Hash::merge($settings, $this->_less($object));
-                break;
-            default:
-                $settings = $settings;
+
+        if (!empty($filters)) {
+            foreach ($filters as $filter) {
+                $methodName = '_' . $filter;
+                if(method_exists($this, $methodName)) {
+                    $settings = Hash::merge($settings, $this->$methodName($object));
+                }
+            }
+        }
+
+//        switch (!empty($filters)) {
+//            case 'equals':
+//                // filter by database field full value
+//                $settings = Hash::merge($settings, $this->_equals($object));
+//                break;
+//            case 'begins':
+//                // filter by starting letter of database field
+//                $settings = Hash::merge($settings, $this->_begins($object));
+//                break;
+//            case 'contains':
+//                // filter by any match of a string in a particular field
+//                $settings = Hash::merge($settings, $this->_contains($object));
+//                break;
+//            case 'between':
+//                // filter by range of a particular field
+//                $settings = Hash::merge($settings, $this->_between($object));
+//                break;
+//            case 'greater':
+//                // filter by range of a particular field
+//                $settings = Hash::merge($settings, $this->_greater($object));
+//                break;
+//            case 'less':
+//                // filter by range of a particular field
+//                $settings = Hash::merge($settings, $this->_less($object));
+//                break;
+//            default:
+//                $settings = $settings;
+//        }
+        return $settings;
+    }
+
+    /**
+     * ###Usage Example
+     * http://some-request/...?filter=begins&begins[first_name][]=tes
+     *
+     * @param $object
+     * @return array
+     */
+    protected function _begins($object)
+    {
+        $settings = [];
+        if (!empty($this->request->query['begins']) && is_array($this->request->query['begins'])) {
+            foreach ($this->request->query['begins'] as $field => $value) {
+                $settings['conditions'][$field . ' LIKE'] = $value . '%';
+            }
         }
         return $settings;
     }
 
     /**
      * ###Usage Example
-     * http://some-request/...?filter[]=equals&equals[first_name][]=test&equals[first_name][]=Jane&equals[role]=user
+     * http://some-request/...?filter=equals&equals[first_name][]=test&equals[first_name][]=Jane&equals[role]=user
      *
      * @param $object
      * @return array

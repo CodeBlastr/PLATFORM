@@ -30,85 +30,129 @@ class PagematronComponentTest extends TestCase
         $this->component = new PaginatorComponent($registry);
     }
 
+//    /**
+//     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
+//     *
+//     * Example
+//     * http://some-request/articles/index?filter[]=equals&equals[author_id][]=4&equals[published]=N
+//     */
+//    public function testPaginateFilterBad()
+//    {
+//        // set query params that should cause url get params to deliver the same as if you had set conditions manually
+//        try {
+//            $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' => 4, '' => 'N']];
+//            $this->controller->paginate('Articles');
+//        } catch (\PDOException $e) {
+//            $true = true;
+//        }
+//        $this->assertTrue($true);
+//    }
+//
+//    /**
+//     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
+//     *
+//     * Example
+//     * http://some-request/articles/index?filter[]=equals&equals[author_id]=1
+//     */
+//    public function testPaginateFilterEquals()
+//    {
+//        $unfiltered = $this->controller->paginate('Articles');
+//        $this->controller->paginate['conditions'] = ['author_id' => 1];
+//        $filtered = $this->controller->paginate('Articles');
+//        $this->controller->paginate = [];
+//
+//        $count = count($unfiltered) - count($filtered);
+//        $this->assertTrue($count > 0); // this test is worthless if they're the same
+//
+//        //
+//        $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' => 1]];
+//        $requested = $this->controller->paginate('Articles');
+//        $this->assertTrue($count == count($unfiltered) - count($requested));
+//    }
+//
+//    /**
+//     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
+//     *
+//     * Example
+//     * http://some-request/articles/index?filter[]=equals&equals[author_id][]=1&equals[author_id][]=4
+//     */
+//    public function testPaginateFilterEqualsSameFieldDifferentValues()
+//    {
+//        $unfiltered = $this->controller->paginate('Articles');
+//        $this->controller->paginate['conditions'] = ['author_id IN' => [1, 4]];
+//        $filtered = $this->controller->paginate('Articles');
+//        $this->controller->paginate = [];
+//        $count = count($unfiltered) - count($filtered);
+//        $this->assertTrue($count > 0); // this test is worthless if they're the same
+//
+//        // set query params that should cause url get params to deliver the same as if you had set conditions manually
+//        $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' =>[1, 4]]];
+//        $requested = $this->controller->paginate('Articles');
+//        $this->assertTrue($count == count($unfiltered) - count($requested));
+//    }
+//
+//    /**
+//     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
+//     *
+//     * Example
+//     * http://some-request/articles/index?filter[]=equals&equals[author_id][]=4&equals[published]=N
+//     */
+//    public function testPaginateFilterEqualsDifferentFields()
+//    {
+//        $unfiltered = $this->controller->paginate('Articles');
+//        $this->controller->paginate['conditions'] = ['author_id IN' => 4, 'published IN' => 'N'];
+//        $filtered = $this->controller->paginate('Articles');
+//        $this->controller->paginate = [];
+//        $count = count($unfiltered) - count($filtered);
+//        $this->assertTrue($count > 0); // this test is worthless if they're the same
+//
+//        // set query params that should cause url get params to deliver the same as if you had set conditions manually
+//        $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' => 4, 'published' => 'N']];
+//        $requested = $this->controller->paginate('Articles');
+//        $this->assertTrue($count == count($unfiltered) - count($requested));
+//    }
+//
     /**
      * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
      *
      * Example
      * http://some-request/articles/index?filter[]=equals&equals[author_id][]=4&equals[published]=N
      */
-    public function testPaginateFilterBad()
-    {
-        // set query params that should cause url get params to deliver the same as if you had set conditions manually
-        try {
-            $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' => 4, '' => 'N']];
-            $this->controller->paginate('Articles');
-        } catch (\PDOException $e) {
-            $true = true;
-        }
-        $this->assertTrue($true);
-    }
-
-    /**
-     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
-     *
-     * Example
-     * http://some-request/articles/index?filter[]=equals&equals[author_id]=1
-     */
-    public function testPaginateFilterEqualsSingle()
+    public function testPaginateFilterBegins()
     {
         $unfiltered = $this->controller->paginate('Articles');
-        $this->controller->paginate['conditions'] = ['author_id' => 1];
-        $filtered = $this->controller->paginate('Articles');
-        $this->controller->paginate = [];
-
-        $count = count($unfiltered) - count($filtered);
-        $this->assertTrue($count > 0); // this test is worthless if they're the same
-
-        //
-        $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' => 1]];
-
-        $this->assertTrue($count == count($unfiltered) - count($this->controller->paginate('Articles')));
-    }
-
-    /**
-     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
-     *
-     * Example
-     * http://some-request/articles/index?filter[]=equals&equals[author_id][]=1&equals[author_id][]=4
-     */
-    public function testPaginateFilterEqualsSameFieldDifferentValues()
-    {
-        $unfiltered = $this->controller->paginate('Articles');
-        $this->controller->paginate['conditions'] = ['author_id IN' => [1, 4]];
+        $this->controller->paginate['conditions'] = ['title LIKE' => 'Four%'];
         $filtered = $this->controller->paginate('Articles');
         $this->controller->paginate = [];
         $count = count($unfiltered) - count($filtered);
         $this->assertTrue($count > 0); // this test is worthless if they're the same
 
-        // set query params that should cause url get params to deliver the same as if you had set conditions manually
-        $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' =>[1, 4]]];
-        $this->assertTrue($count == count($unfiltered) - count($this->controller->paginate('Articles')));
+          //set query params that should cause url get params to deliver the same as if you had set conditions manually
+        $this->controller->request->query = ['filter' => 'begins', 'begins' => ['title' => 'Four']];
+        $requested = $this->controller->paginate('Articles');
+        $this->assertTrue($count == count($unfiltered) - count($requested));
     }
-
-    /**
-     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
-     *
-     * Example
-     * http://some-request/articles/index?filter[]=equals&equals[author_id][]=4&equals[published]=N
-     */
-    public function testPaginateFilterEqualsDifferentFields()
-    {
-        $unfiltered = $this->controller->paginate('Articles');
-        $this->controller->paginate['conditions'] = ['author_id IN' => 4, 'published IN' => 'N'];
-        $filtered = $this->controller->paginate('Articles');
-        $this->controller->paginate = [];
-        $count = count($unfiltered) - count($filtered);
-        $this->assertTrue($count > 0); // this test is worthless if they're the same
-
-        // set query params that should cause url get params to deliver the same as if you had set conditions manually
-        $this->controller->request->query = ['filter' => 'equals', 'equals' => ['author_id' => 4, 'published' => 'N']];
-        $this->assertTrue($count == count($unfiltered) - count($this->controller->paginate('Articles')));
-    }
+//
+//    /**
+//     * set get query params that should cause the paginate method to deliver the same as if you had set conditions manually
+//     *
+//     * Example
+//     * http://some-request/articles/index?filter[]=equals&equals[author_id][]=4&equals[published]=N
+//     */
+//    public function testPaginateFilterEqualsAndFilterBeginsTogether()
+//    {
+//        $unfiltered = $this->controller->paginate('Articles');
+//        $this->controller->paginate['conditions'] = ['author_id IN' => 4, 'published IN' => 'N'];
+//        $filtered = $this->controller->paginate('Articles');
+//        $this->controller->paginate = [];
+//        $count = count($unfiltered) - count($filtered);
+//        $this->assertTrue($count > 0); // this test is worthless if they're the same
+//
+//          //set query params that should cause url get params to deliver the same as if you had set conditions manually
+//        $this->controller->request->query = ['filter' => ['equals', 'begins'], 'begins' => ['title' => 'Four'], 'equals' => ['author_id' => 4, 'published' => 'N']];
+//        $requested = $this->controller->paginate('Articles');
+//        $this->assertTrue($count == count($unfiltered) - count($requested));
+//    }
 
     public function tearDown()
     {
