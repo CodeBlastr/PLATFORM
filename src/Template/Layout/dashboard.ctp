@@ -35,7 +35,6 @@ $this->prepend('script', $this->Html->script([
     '/bootstrap/js/dropdown',
     '/bootstrap/js/alert'
 ]));
-
 ?>
 <!DOCTYPE html>
 <?= $this->fetch('html'); ?>
@@ -49,10 +48,7 @@ $this->prepend('script', $this->Html->script([
         echo $this->fetch('meta');
 
         // Styles
-        echo $this->Less->less([
-            'Bootstrap.less/bootstrap.less'
-            // 'Bootstrap.less/cakephp/styles.less'
-        ]);
+        echo $this->Less->less('less/styles.less'); // was the default // echo $this->Less->less(['Bootstrap.less/bootstrap.less' /* 'Bootstrap.less/cakephp/styles.less' */]);
         echo $this->fetch('css');
         echo $this->Html->css('/themes/dashboard/css/dashboard.css');
 

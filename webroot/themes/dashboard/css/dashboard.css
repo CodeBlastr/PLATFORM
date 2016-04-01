@@ -2,9 +2,22 @@
 body {
     background: #eee;
 }
+/* paper-variables.less overwrites */
 .navbar {
     margin-bottom: 0px;
+    min-height: 0;
 }
+.navbar-brand {
+    padding: 12px 15px;
+    height: auto;
+}
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}
+
 .content {
     background: #fff;
     -webkit-box-shadow: -1px 2px 5px 1px rgba(0,0,0,0.39);
@@ -27,12 +40,24 @@ body {
     background-color: #eee;
     /*opacity: 0.4;*/
     border: 0;
-    border-bottom: 1px solid #aaa;
+    margin-bottom: 1px;
+    padding: 13px;
+    color: #555;
+}
+.sidebar-nav .list-group-item:after {
+    content: '';
+    width: 85%;
+    height: 1px;
+    background: #aaa;
+    position: absolute;
+    bottom: 0px;
+    left: 15%;
+    margin-left: -7.5%;
+
+    /*border-bottom: 1px solid #aaa;*/
     -webkit-box-shadow: 0px 1px 0px 0px rgba(255,255,255,1);
     -moz-box-shadow: 0px 1px 0px 0px rgba(255,255,255,1);
     box-shadow: 0px 1px 0px 0px rgba(255,255,255,1);
-    margin-bottom: 0;
-    padding: 15px;
 }
 .sidebar-nav .list-group-item:hover, .sidebar-nav .list-group-item:focus {
     background-color: #eee;
@@ -54,21 +79,25 @@ body {
         right: -15px;
     }
 }
-.sidebar-nav .list-group-item.active  {
-    color: #777;
-}
-.sidebar-nav a.list-group-item:hover, .sidebar-nav a.list-group-item:focus {
+.sidebar-nav a.list-group-item:hover, .sidebar-nav a.list-group-item:focus, .sidebar-nav .list-group-item a:hover, .sidebar-nav .list-group-item a:focus {
     color: #000;
     text-decoration:none;
 }
-.sidebar-nav ul li a:hover, .sidebar-nav ul li a:focus {
+.sidebar-nav .list-group-item a {
+    color: #555;
+}
+.sidebar-nav .list-group-item a.active, .sidebar-nav a.list-group-item.active {
+    color: #2196f3;
+}
+.sidebar-nav .list-group-item ul li a:hover, .sidebar-nav .list-group-item ul li a:focus {
     text-decoration: underline;
+    color: #2196f3;
 }
 .sidebar-nav ul {
     padding-top: 10px;
 }
 .sidebar-nav .glyphicon {
-    font-size: 1.5em;
+    font-size: 1.2em;
     position: relative;
     top: 4px;
     margin-right: 6px;
@@ -94,7 +123,7 @@ footer {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     border-radius: 25px;
     border: 1px solid #ccc;
-    margin-top: 14px;
+    margin-top: 12px;
     margin-right: 10px;
     margin-bottom: 0px;
 }
@@ -137,4 +166,20 @@ footer {
     color: #3596e0;
     left: initial;
     font-size: 14px;
+}
+
+/* specific to the permissions page */
+.permissions table div.checkbox {
+    margin: 0;
+}
+.permissions table tr.spacer, .permissions table tr.spacer:hover, .permissions table tr.spacer td {
+    background-color: #fff;
+    border: 0;
+    padding: 30px;
+}
+.permissions table tr th {
+    border-top: 0;
+}
+.permissions table tr td.active {
+    border-bottom: 1px solid #ccc;
 }
