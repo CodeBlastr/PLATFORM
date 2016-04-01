@@ -69,35 +69,8 @@ class PaginatorComponent extends PaginatorComponent
                 }
             }
         }
-
-//        switch (!empty($filters)) {
-//            case 'equals':
-//                // filter by database field full value
-//                $settings = Hash::merge($settings, $this->_equals($object));
-//                break;
-//            case 'begins':
-//                // filter by starting letter of database field
-//                $settings = Hash::merge($settings, $this->_begins($object));
-//                break;
-//            case 'contains':
-//                // filter by any match of a string in a particular field
-//                $settings = Hash::merge($settings, $this->_contains($object));
-//                break;
-//            case 'between':
-//                // filter by range of a particular field
-//                $settings = Hash::merge($settings, $this->_between($object));
-//                break;
-//            case 'greater':
-//                // filter by range of a particular field
-//                $settings = Hash::merge($settings, $this->_greater($object));
-//                break;
-//            case 'less':
-//                // filter by range of a particular field
-//                $settings = Hash::merge($settings, $this->_less($object));
-//                break;
-//            default:
-//                $settings = $settings;
-//        }
+//        debug($settings);
+//        exit;
         return $settings;
     }
 
@@ -113,7 +86,14 @@ class PaginatorComponent extends PaginatorComponent
         $settings = [];
         if (!empty($this->request->query['begins']) && is_array($this->request->query['begins'])) {
             foreach ($this->request->query['begins'] as $field => $value) {
-                $settings['conditions'][$field . ' LIKE'] = $value . '%';
+                if (is_array($value)) {
+                    // if begins has multiple values it has to be an OR statement
+                    foreach ($value as $val) {
+                        $settings['conditions']['OR'][][$field . ' LIKE'] = $val . '%';
+                    }
+                } else {
+                    $settings['conditions'][$field . ' LIKE'] = $value . '%';
+                }
             }
         }
         return $settings;
