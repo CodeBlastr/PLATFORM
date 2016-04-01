@@ -46,6 +46,15 @@ class PaginatorComponent extends PaginatorComponent
      *
      * Not sure $object will be needed so I set it to null for the time being
      *
+     * Supports (or will support)
+     *  - equals : field IN 'example', 'example2', multiple values on same field creates an AND filter
+     *  - begins : field LIKE 'example%', multiple values on same field creates an OR filter
+     *  - contains : field LIKE '%example%', multiple values on same field creates an OR filter
+     *  - between : field > 'X' && field < 'X', multiple values on same field creates an AND filter
+     *  - greater : field > 'X', multiple values on same field is unnecessary
+     *  - lesser : field < 'X', multiple values on same field is unnecessary
+     * > Multiple fields should always create an AND filter
+     *
      * @param null $object
      * @param array $settings
      * @return array
@@ -69,8 +78,33 @@ class PaginatorComponent extends PaginatorComponent
                 }
             }
         }
-//        debug($settings);
-//        exit;
+        debug($settings);
+        exit;
+        return $settings;
+    }
+
+    /**
+     * ###Usage Example
+     * http://some-request/...?filter=contains&contains[first_name][]=es
+     *
+     * @param $object
+     * @return array
+     */
+    protected function _contains($object)
+    {
+        $settings = [];
+        if (!empty($this->request->query['contains']) && is_array($this->request->query['contains'])) {
+            foreach ($this->request->query['contains'] as $field => $value) {
+                if (is_array($value)) {
+                    // if begins has multiple values it has to be an OR statement
+                    foreach ($value as $val) {
+                        $settings['conditions']['OR'][][$field . ' LIKE'] = '%' . $val . '%';
+                    }
+                } else {
+                    $settings['conditions'][$field . ' LIKE'] = '%' . $value . '%';
+                }
+            }
+        }
         return $settings;
     }
 
