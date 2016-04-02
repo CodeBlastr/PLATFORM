@@ -3,7 +3,7 @@
 namespace App\View;
 
 use WyriHaximus\TwigView\View\TwigView;
-use CodeBlastr\MultiSite\View\MultisiteView;
+use CodeBlastrMultiSite\View\MultiSiteView;
 
 /**
  * Application View
@@ -23,17 +23,17 @@ class AppView extends TwigView
     {
         $this->loadHelper('Less', ['className' => 'Less.Less']);
         $this->loadHelper('Html', ['className' => 'BootstrapUI.Html']);
-        $this->loadHelper('Form', ['className' => 'BootstrapUI.Form', 'templates' => 'bootstrap-forms']);
+        $this->loadHelper('Form', ['className' => 'BootstrapUI.Form', 'templates' => 'CodeBlastrBootstrap.form.templates']);
 
         $this->loadHelper('Flash', ['className' => 'BootstrapUI.Flash']);
         //$this->loadHelper('Flash');  // BootstrapUI.Flash doesn't support magic flash (eg. $this->Flash->error()
         $this->loadHelper('Paginator', ['className' => 'BootstrapUI.Paginator']);
 
-        $this->theme = 'Bootstrap';
+        $this->theme = 'CodeBlastrBootstrap';
         if ($this->request->prefix === 'dashboard') {
-            $this->layout = 'CodeBlastr/Bootstrap.dashboard';
+            $this->layout = 'CodeBlastrBootstrap.dashboard';
         } else {
-            $this->layout = 'Bootstrap.default';
+            $this->layout = 'CodeBlastrBootstrap.default';
         }
     }
 
@@ -46,7 +46,7 @@ class AppView extends TwigView
      */
     protected function _paths($plugin = null, $cached = true)
     {
-        $multisite = new MultisiteView();
+        $multisite = new MultiSiteView();
         $multisite->theme = $this->theme;
         return $multisite->_paths($plugin, $cached);
     }

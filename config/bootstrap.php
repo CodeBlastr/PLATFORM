@@ -172,14 +172,15 @@ Request::addDetector('tablet', function ($request) {
  */
 // this causes an error with the initial install // require_once(CONFIG . 'plugins.php');
 
-Plugin::load('CodeBlastr/Users', ['routes' => true, 'bootstrap' => true]);
-Plugin::load('CodeBlastr/Bootstrap');
+Plugin::load('CodeBlastrUsers', ['routes' => true, 'bootstrap' => true]);
+Plugin::load('CodeBlastrBootstrap');
+Plugin::load('Bootstrap'); // can't load from CodeBlastrBootstrap apparently
+Plugin::load('Less'); // can't load from CodeBlastrBootstrap apparently
+Configure::write('Auth.flash.params.class', ['alert', 'alert-danger', 'alert-dismissible']); // odd fix to get bootstrapui, and cakedc users to play nice together
+Plugin::load('BootstrapUI'); // can't load from CodeBlastrBootstrap apparently
+
 Plugin::load('Crud');
 Plugin::load('Migrations');
-Plugin::load('Bootstrap');
-Plugin::load('Less');
-Configure::write('Auth.flash.params.class', ['alert', 'alert-danger', 'alert-dismissible']); // odd fix to get bootstrapui, and cakedc users to play nice together
-Plugin::load('BootstrapUI');
 
 
 // Only try to load DebugKit in development mode

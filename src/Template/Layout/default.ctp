@@ -14,7 +14,7 @@
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
+<body data-layout="App/default">
    <p>This template should not be being used right now.</p>
     <div class="container">
         <nav class="navbar navbar-default">

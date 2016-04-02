@@ -35,7 +35,7 @@ class AppController extends Controller
         $this->loadComponent('Flash');
 
         Configure::write('Users.publicAcl', true);
-        $this->loadComponent('CodeBlastr/Users.UsersAuth');
+        $this->loadComponent('CodeBlastrUsers.UsersAuth');
         //$this->loadComponent('CakeDC/Users.UsersAuth');
 
 // going to have to have some kind of auth going on site wide I would imagine
