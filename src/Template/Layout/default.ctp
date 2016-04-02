@@ -15,6 +15,7 @@
     <?= $this->fetch('script') ?>
 </head>
 <body>
+   <p>This template should not be being used right now.</p>
     <div class="container">
         <nav class="navbar navbar-default">
             <div class="container-fluid">

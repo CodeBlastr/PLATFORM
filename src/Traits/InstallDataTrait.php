@@ -27,11 +27,11 @@ trait InstallDataTrait
      *
      * @todo make the str_replace() to find the dbType some better regex or something
      */
-    protected function config(array $config = [])
+    protected function _installDataTraitConfig(array $config = [])
     {
 
-        debug($config);
-        exit;
+//        debug($config);
+//        exit;
 
         // defaults
         $config = array_merge([
@@ -63,12 +63,11 @@ trait InstallDataTrait
     public function createData(array $config = [])
     {
         try {
-            self::config($config);
+            self::_installDataTraitConfig($config);
 
         } catch (Exception $e) {
             // should probably have a roll back here in case there is an error and need to try again
             throw new Exception($e->getMessage());
         }
-    }
     }
 }

@@ -23,7 +23,7 @@ trait InstallSitesTrait
      *
      * @todo make the str_replace() to find the dbType some better regex or something
      */
-    protected function config(array $config = [])
+    protected function _installSitesTraitConfig(array $config = [])
     {
         // defaults
         $config = array_merge([
@@ -55,7 +55,7 @@ trait InstallSitesTrait
     public function createSite(array $config = [])
     {
         try {
-            self::config($config);
+            self::_installSitesTraitConfig($config);
             self::_copyTemplateDatabase();
             self::_copySiteTemplate();
             self::_updateSitesBootstrap();

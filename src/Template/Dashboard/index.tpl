@@ -1,4 +1,5 @@
 <h1>Dashboard</h1>
+<p>This needs to be something plugins can add on to</p>
 <hr>
 
 <div class="row">

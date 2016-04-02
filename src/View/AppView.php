@@ -31,7 +31,7 @@ class AppView extends TwigView
 
         $this->theme = 'Bootstrap';
         if ($this->request->prefix === 'dashboard') {
-            $this->layout = 'dashboard';
+            $this->layout = 'CodeBlastr/Bootstrap.dashboard';
         } else {
             $this->layout = 'Bootstrap.default';
         }
