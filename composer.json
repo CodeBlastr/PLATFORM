@@ -52,7 +52,7 @@
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-autoload-dump": [
             "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
-            "CodeBlastr\\MultiSite\\Console\\AutoLoader::postAutoloadDump"
+            "GoBigMulty\\Console\\AutoLoader::postAutoloadDump"
         ]
     },
     "minimum-stability": "dev",
