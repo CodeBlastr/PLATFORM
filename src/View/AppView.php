@@ -30,10 +30,8 @@ class AppView extends TwigView
         $this->loadHelper('Paginator', ['className' => 'BootstrapUI.Paginator']);
 
         $this->theme = 'CodeBlastrBootstrap';
-        if ($this->request->prefix === 'dashboard') {
+        if ($this->request->prefix === 'dashboard' && $this->layout === 'default') {
             $this->layout = 'CodeBlastrBootstrap.dashboard';
-        } else {
-            $this->layout = 'CodeBlastrBootstrap.default';
         }
     }
 

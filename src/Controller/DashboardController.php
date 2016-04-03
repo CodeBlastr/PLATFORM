@@ -19,6 +19,7 @@ class DashboardController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->layout('dashboard');
         $this->set('plugins', Plugin::loaded());
     }
 }
