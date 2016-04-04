@@ -22,6 +22,7 @@ class AppView extends TwigView
     public function initialize()
     {
         $this->loadHelper('Less', ['className' => 'Less.Less']);
+        $this->loadHelper('Url');
         $this->loadHelper('Html', ['className' => 'BootstrapUI.Html']);
         $this->loadHelper('Form', ['className' => 'BootstrapUI.Form', 'templates' => 'CodeBlastrBootstrap.form.templates']);
 
