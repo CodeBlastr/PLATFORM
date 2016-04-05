@@ -24,7 +24,7 @@ class AppView extends TwigView
         $this->loadHelper('Less', ['className' => 'Less.Less']);
         $this->loadHelper('Url');
         $this->loadHelper('Html', ['className' => 'BootstrapUI.Html']);
-        $this->loadHelper('Form', ['className' => 'BootstrapUI.Form', 'templates' => 'CodeBlastrBootstrap.form.templates']);
+        $this->loadHelper('Form', ['className' => 'BootstrapUI.Form', 'templates' => 'CodeBlastrBootstrap.form.grid']);
 
         $this->loadHelper('Flash', ['className' => 'BootstrapUI.Flash']);
         //$this->loadHelper('Flash');  // BootstrapUI.Flash doesn't support magic flash (eg. $this->Flash->error()
