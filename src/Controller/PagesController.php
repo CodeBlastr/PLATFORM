@@ -37,15 +37,6 @@ class PagesController extends AppController
     public $permissions = true;
 
     /**
-     * Demo of how to use allowedActions
-     */
-//    public function initialize()
-//    {
-//        parent::initialize();
-//        $this->Auth->allowedActions = ['display'];
-//    }
-
-    /**
      * Displays a view
      *
      * @return void|\Cake\Network\Response

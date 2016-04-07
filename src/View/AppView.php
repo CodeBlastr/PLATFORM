@@ -49,4 +49,17 @@ class AppView extends TwigView
         $multisite->theme = $this->theme;
         return $multisite->_paths($plugin, $cached);
     }
+
+    /**
+     * Need this to be public so that we can
+     * have variable template file names, and
+     * check if they exist.
+     *
+     * @param null $plugin
+     * @param bool $cached
+     * @return mixed
+     */
+    public function paths($plugin = null, $cached = true) {
+        return $this->_paths($plugin, $cached);
+    }
 }
