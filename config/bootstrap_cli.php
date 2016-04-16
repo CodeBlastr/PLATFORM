@@ -13,13 +13,21 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 use Cake\Core\Configure;
+use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Exception\MissingPluginException;
 use Cake\Core\Plugin;
+
+/**
+ * Get multisites
+ */
+require ROOT . DS . 'sites' . DS . 'bootstrap.php';
 
 /**
  * Additional bootstrapping and configuration for CLI environments should
  * be put here.
  */
+Configure::config('default', new PhpConfig());
+Configure::load('app', 'default', false);
 
 // Set the fullBaseUrl to allow URLs to be generated in shell tasks.
 // This is useful when sending email from shells.
