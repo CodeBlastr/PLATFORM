@@ -20,5 +20,6 @@
 </head>
 <body>
     <?= $this->fetch('content') ?>
+    <p>This is the default html layout.</p>
 </body>
 </html>

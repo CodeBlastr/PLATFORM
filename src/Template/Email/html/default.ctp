@@ -20,3 +20,6 @@ foreach ($content as $line):
     echo '<p> ' . $line . "</p>\n";
 endforeach;
 ?>
+
+
+<p>This is the default html template.</p>
