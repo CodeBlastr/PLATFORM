@@ -14,3 +14,5 @@
  */
 ?>
 <?= $content ?>
+
+this is the text template

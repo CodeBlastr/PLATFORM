@@ -14,3 +14,6 @@
  */
 ?>
 <?= $this->fetch('content') ?>
+
+
+this is the text layout
