@@ -179,6 +179,7 @@ Plugin::load('CodeBlastrBootstrap');
 Plugin::load('Bootstrap'); // can't load from CodeBlastrBootstrap apparently
 Plugin::load('Less'); // can't load from CodeBlastrBootstrap apparently
 Plugin::load('BootstrapUI'); // can't load from CodeBlastrBootstrap apparently
+Plugin::load('CodeBlastrQueue');
 
 Plugin::load('Crud');
 Plugin::load('Migrations');
